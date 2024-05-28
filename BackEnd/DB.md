@@ -1,5 +1,3 @@
-## Database configuration for [Express Typescript Boilerplate](https://github.com/akash-kansara/iconwala-db)
-
 ## Note
 By default, this application connects to LokiJS DB in `dev` environment, MySQL in `staging` environment and MongoDB in `prod` environment. You can change to any database in any environment with either of the following options:
 

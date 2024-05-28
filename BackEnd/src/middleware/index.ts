@@ -2,11 +2,11 @@ import { Router } from 'express';
 import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
 import * as cors from 'cors';
-import * as expressRequestId from 'express-request-id';
+import ruid from 'express-ruid';
 
 const router: Router = Router();
 
-router.use(expressRequestId.default());
+router.use(ruid({ setInContext: true }));
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));

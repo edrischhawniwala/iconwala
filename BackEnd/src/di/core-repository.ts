@@ -24,7 +24,7 @@ switch (process.env['REPOSITORY.DEFAULT']) {
     container.bind<IRepository>(TYPES.IRepository).to(MySqlRepo).inSingletonScope();
     break;
   default:
-    container.bind<IRepository>(TYPES.IRepository).to(LokiRepo).inSingletonScope();
+    container.bind<IRepository>(TYPES.IRepository).to(MongoRepo).inSingletonScope();
     break;
 }
 

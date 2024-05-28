@@ -1,4 +1,4 @@
-import { MongoClient, MongoError, MongoClientOptions, InsertOneWriteOpResult, UpdateWriteOpResult, DeleteWriteOpResultObject } from 'mongodb';
+import { MongoClient, MongoError, MongoClientOptions, InsertOneResult, WithId, UpdateResult, DeleteResult } from 'mongodb';
 
 import 'reflect-metadata';
 import { injectable } from 'inversify';
@@ -33,11 +33,10 @@ class MongoRepository implements IRepository {
   public disconnect(): Promise<void> {
     return new Promise((resolve, reject) => {
       if (this.isConnected) {
-        this.dbObj.close(() => {
-          eventHandler.emit('repo-disconn-s', this.provider);
-          this.isConnected = false;
-          resolve();
-        });
+        this.dbObj.close();
+        eventHandler.emit('repo-disconn-s', this.provider);
+        this.isConnected = false;
+        resolve();
       } else {
         reject();
         eventHandler.emit('repo-disconn-f', this.provider, 'Connection was not established');
@@ -50,8 +49,8 @@ class MongoRepository implements IRepository {
       if (this.isConnected) {
         const collection = this.dbObj.db().collection(schema);
         collection.insertOne(data)
-          .then((result: InsertOneWriteOpResult<any>) => {
-            if (result.insertedCount === 1) { resolve(); }
+          .then((result: InsertOneResult<any>) => {
+            if (result.acknowledged) { resolve(); }
             else {
               reject();
               eventHandler.emit(
@@ -59,7 +58,7 @@ class MongoRepository implements IRepository {
                 this.provider,
                 'Insert One',
                 data,
-                `Insert count was  ${result.insertedCount}`
+                `Insert Id was  ${result.insertedId}`
               );
             }
           })
@@ -91,7 +90,7 @@ class MongoRepository implements IRepository {
       if (this.isConnected) {
         const collection = this.dbObj.db().collection(schema);
         collection.updateOne(filter, { $set: data })
-          .then((result: UpdateWriteOpResult) => {
+          .then((result: UpdateResult) => {
             if (result.upsertedCount === 1) { resolve(); }
             else {
               reject();
@@ -163,8 +162,8 @@ class MongoRepository implements IRepository {
       if (this.isConnected) {
         const collection = this.dbObj.db().collection(schema);
         collection.findOne(filter)
-          .then((result: object) => {
-            resolve(result);
+          .then((result: any): any => {
+            resolve(result as  WithId<Document>);
           })
           .catch((error: MongoError) => {
             reject();
@@ -194,7 +193,7 @@ class MongoRepository implements IRepository {
       if (this.isConnected) {
         const collection = this.dbObj.db().collection(schema);
         collection.deleteOne(filter)
-          .then((result: DeleteWriteOpResultObject) => {
+          .then((result: DeleteResult) => {
             if (result.deletedCount === 1) { resolve(); }
             else {
               reject();

@@ -17,7 +17,7 @@ class MySqlRepository implements IRepository {
     user: process.env['REPOSITORY.MYSQL.USER'] as string,
     password: process.env['REPOSITORY.MYSQL.PASSWORD'] as string
   };
-  private dbObj: Knex = Knex({
+  private dbObj: Knex.Knex<any, unknown[]> = Knex({
     client: 'mysql',
     connection: this.connection
   });

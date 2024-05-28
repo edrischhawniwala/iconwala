@@ -29,11 +29,11 @@ export class User implements IUser {
   public validate(): ValidationError[] { return validateSync(this); }
   public validateErrMsg(): string { return combineValidationError(this); }
 
-  constructor(obj: object) {
-    this.firstname = get(obj, 'firstname');
-    this.lastname = get(obj, 'lastname');
-    this.email = get(obj, 'email');
-    this.dob = new Date(get(obj, 'dob'));
+  constructor(obj: any) {
+    this.firstname = obj['firstname'];
+    this.lastname = obj['lastname'];
+    this.email = obj['email'];
+    this.dob = new Date(obj['dob']);
   }
 
 }

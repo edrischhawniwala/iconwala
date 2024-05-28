@@ -1,5 +1,4 @@
 import { IsString, MaxLength, validateSync, IsNumber, ValidationError } from 'class-validator';
-import { get } from 'lodash';
 
 import { combineValidationError } from '../../core/entity';
 
@@ -33,12 +32,12 @@ export class Product implements IProduct {
   public validate(): ValidationError[] { return validateSync(this); }
   public validateErrMsg(): string { return combineValidationError(this); }
 
-  constructor(obj: object) {
-    this.code = get(obj, 'code');
-    this.name = get(obj, 'name');
-    this.desc = get(obj, 'desc');
-    this.tag = get(obj, 'tag');
-    this.price = get(obj, 'price');
+  constructor(obj: any) {
+    this.code = obj['code'];
+    this.name = obj['name'];
+    this.desc = obj['desc'];
+    this.tag = obj['tag'];
+    this.price = obj['price'];
   }
 
 }
