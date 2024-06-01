@@ -12,7 +12,17 @@ export function Navbar() {
    <div className="navbar-div">
     <div className="nav-logo">
     <img src={logo} alt="Iconwala Logo" />
-    <div className="iconwala-text"><span style={{ color:'#F48B3C'}}>Icon</span><span style={{ color:'#449AF7'}}>Wala</span></div>
+    <div className="iconwala-text"><span style={{ color:'#F48B3C'}}>iCon</span><span style={{ color:'#449AF7'}}>Wala</span></div>
+    </div>
+    <div className="navigation-items">
+        <a href="#">Explore</a>
+        <a href="#">Add Your Design</a>
+        <a href="#">Free Assets</a>
+        <a href="#">About Us</a>
+    </div>
+    <div className="nav-signin-btns">
+    <a href="#">Login</a>
+    <a href="#">Sign Up</a>
     </div>
 
    </div>

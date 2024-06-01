@@ -2,19 +2,48 @@
     border-radius: 50px;
     background-color: #fff;
     margin: 20px 10px;
+    height: 60px;
     padding: 0px 20px;
+    display: flex;
+    align-items: center;
 }
 
 .nav-logo img {
-    width: 100px;
+    width: 50px;
 }
 
 .nav-logo span {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .nav-logo {
     display: flex;
     align-items: center;
 }
+
+.navigation-items {
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navigation-items a, .nav-signin-btns a {
+    color: #000;
+    margin: 0px 30px;
+}
+
+.navigation-items a:hover, .nav-signin-btns a:hover {
+    color: #1B2634;
+    margin: 0px 30px;
+}
+
+
+
+.nav-signin-btns {
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
 
