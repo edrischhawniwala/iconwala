@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import logo from '../imgs/iconwalalogo.png';
+import mobilemenu from '../imgs/menu-bar.png'
 import '../styles/navbar.css';
 
 
@@ -8,7 +9,9 @@ export function Navbar() {
 
     
     return <Fragment>
-        
+    <div className="custom-mobile-menu">
+        <img src={mobilemenu} alt="mobile icon" />
+    </div>
    <div className="navbar-div">
     <div className="nav-logo">
     <img src={logo} alt="Iconwala Logo" />
