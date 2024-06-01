@@ -179,3 +179,7 @@ a {
 body {
     background-color: #1B2634;
 }
+
+a {
+    text-decoration: none;
+}
