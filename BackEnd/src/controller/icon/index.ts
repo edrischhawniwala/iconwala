@@ -1,39 +1,39 @@
 import 'reflect-metadata';
 import { injectable, inject } from 'inversify';
 import { TYPES } from '../../di/types';
-import IProductService from '../../service/product';
+import IIconService from '../../service/icon';
 
 import { StandardError, StandardSuccess } from '../../entity/standard-operation';
 import { ControllerError, ControllerSuccess } from '../../core/controller/definition';
-import { Product } from '../../entity/product';
+import { Icon } from '../../entity/icon';
 
 @injectable()
-export default class ProductController implements IProductService {
+export default class IconController implements IIconService {
 
-  private service: IProductService;
+  private service: IIconService;
   constructor(
-    @inject(TYPES.ProductRepo) service: IProductService
+    @inject(TYPES.IconRepo) service: IIconService
   ) {
     this.service = service;
   }
 
-  public async create(product: Product) {
+  public async create(icon: Icon) {
     return new Promise<StandardError | StandardSuccess>(async (resolve, reject) => {
       try {
-        await this.checkIfNotExists(product.code);
-        this.service.create(product)
+        await this.checkIfNotExists(icon.id);
+        this.service.create(icon)
           .then((success: StandardSuccess) => resolve(new ControllerSuccess(success.description)))
           .catch((error: StandardError) => reject(new ControllerError(error.description)));
-      } catch (err) { reject(new ControllerError('Product already exists')); }
+      } catch (err) { reject(new ControllerError('icon already exists')); }
     });
   }
 
-  public fetch() {
-    return new Promise<StandardError | Product[]>(async (resolve, reject) => {
-      this.service.fetch()
-        .then((products: StandardError | Product[]) => {
-          Array.isArray(products) ?
-            resolve(products) : reject(new ControllerError('Failed to fetch products'));
+  public fetch(pageNumber: number = 1, pageSize: number = 10, q?: string) {
+    return new Promise<StandardError | Icon[]>(async (resolve, reject) => {
+      this.service.fetch(pageNumber, pageSize, q)
+        .then((icons: StandardError | Icon[]) => {
+          Array.isArray(icons) ?
+            resolve(icons) : reject(new ControllerError('Failed to fetch icons'));
         })
         .catch((error: StandardError) => {
           reject(new ControllerError(error.description));
@@ -41,11 +41,11 @@ export default class ProductController implements IProductService {
     });
   }
 
-  public fetchOne(code: string) {
-    return new Promise<StandardError | Product>(async (resolve, reject) => {
-      this.service.fetchOne(code)
-        .then((product: StandardError | Product) => {
-          resolve(product);
+  public fetchOne(id: string) {
+    return new Promise<StandardError | Icon>(async (resolve, reject) => {
+      this.service.fetchOne(id)
+        .then((icon: StandardError | Icon) => {
+          resolve(icon);
         })
         .catch((error: StandardError) => {
           reject(new ControllerError(error.description));
@@ -53,14 +53,14 @@ export default class ProductController implements IProductService {
     });
   }
 
-  public update(product: Product) {
+  public update(icon: Icon) {
     return new Promise<StandardError | StandardSuccess>(async (resolve, reject) => {
       try {
-        await this.checkIfExists(product.code);
-        this.service.update(product)
+        await this.checkIfExists(icon.id);
+        this.service.update(icon)
           .then((success: StandardSuccess) => resolve(new ControllerSuccess(success.description)))
           .catch((error: StandardError) => reject(new ControllerError(error.description)));
-      } catch (err) { reject(new ControllerError('Product not found')); }
+      } catch (err) { reject(new ControllerError('Icon not found')); }
     });
   }
 

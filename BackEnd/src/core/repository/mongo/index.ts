@@ -1,4 +1,4 @@
-import { MongoClient, MongoError, MongoClientOptions, InsertOneResult, WithId, UpdateResult, DeleteResult } from 'mongodb';
+import { MongoClient, MongoError, MongoClientOptions, InsertOneResult, WithId, UpdateResult, DeleteResult, Filter, FindOptions, Document } from 'mongodb';
 
 import 'reflect-metadata';
 import { injectable } from 'inversify';
@@ -14,8 +14,8 @@ class MongoRepository implements IRepository {
   private dbObj: MongoClient = new MongoClient(
     process.env['REPOSITORY.MONGO.CONNSTR'] as string,
     {
-      useUnifiedTopology: true,
-      useNewUrlParser: true
+      // useUnifiedTopology: true,
+      // useNewUrlParser: true
     } as MongoClientOptions
   );
 
@@ -126,13 +126,44 @@ class MongoRepository implements IRepository {
     });
   }
 
-  public readMany(schema: string, filter: object): Promise<void | object[]> {
+  // public readMany(schema: string, filter: object): Promise<void | object[]> {
+  //   return new Promise((resolve, reject) => {
+  //     if (this.isConnected) {
+  //       const collection = this.dbObj.db().collection(schema);
+  //       collection.find(filter).toArray()
+  //         .then((result: object[]) => {
+  //           resolve(result);
+  //         })
+  //         .catch((error: MongoError) => {
+  //           reject();
+  //           eventHandler.emit(
+  //             'repo-op-f',
+  //             this.provider,
+  //             'Read many',
+  //             filter,
+  //             error
+  //           );
+  //         });
+  //     } else {
+  //       reject();
+  //       eventHandler.emit(
+  //         'repo-op-f',
+  //         this.provider,
+  //         'Read many',
+  //         filter,
+  //         'Connection was not established'
+  //       );
+  //     }
+  //   });
+  // }
+
+  public readMany<T extends Document>(schema: string, filter: Filter<T>, options?: FindOptions): Promise<void | T[]> {
     return new Promise((resolve, reject) => {
       if (this.isConnected) {
-        const collection = this.dbObj.db().collection(schema);
-        collection.find(filter).toArray()
+        const collection = this.dbObj.db().collection<T>(schema);
+        collection.find(filter, options).toArray()
           .then((result: object[]) => {
-            resolve(result);
+            resolve(result as any);
           })
           .catch((error: MongoError) => {
             reject();
@@ -157,13 +188,13 @@ class MongoRepository implements IRepository {
     });
   }
 
-  public readOne(schema: string, filter: object): Promise<void | object> {
+  public readOne<T extends Document>(schema: string, filter: Filter<T>): Promise<void | WithId<T>> {
     return new Promise((resolve, reject) => {
       if (this.isConnected) {
-        const collection = this.dbObj.db().collection(schema);
+        const collection = this.dbObj.db().collection<T>(schema);
         collection.findOne(filter)
           .then((result: any): any => {
-            resolve(result as  WithId<Document>);
+            resolve(result as  WithId<T>);
           })
           .catch((error: MongoError) => {
             reject();

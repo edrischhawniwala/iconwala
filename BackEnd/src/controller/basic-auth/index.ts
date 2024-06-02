@@ -26,14 +26,8 @@ if (process.env['NODE_ENV'] === 'dev') {
 
 @injectable()
 export default class BasicAuthController implements IBasicAuth {
-
-  constructor() {
-    console.log('I was here');
-  }
   public async authenticate(userCred: UserCredential) {
-    console.log('I was here two');
     return new Promise<BasicAuthError | void>(async (resolve, reject) => {
-    console.log('I was here three');
       if (
         users.filter(
           (defUser) =>

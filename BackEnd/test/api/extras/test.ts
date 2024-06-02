@@ -22,17 +22,4 @@ describe('HTTP Failure codes', () => {
         done();
       });
   });
-  it('it should respond with 403 status code', (done) => {
-    chai.request(server)
-      .post('/mdm/product')
-      .send({})
-      .end((err, res) => {
-        expect(res).to.have.status(403);
-        expect(res.body).to.have.property('statusCode');
-        expect(res.body).to.have.property('status');
-        expect(res.body).to.have.property('description');
-        expect(res.body.statusCode).to.equal('S_AUTHZN_F');
-        done();
-      });
-  });
 });

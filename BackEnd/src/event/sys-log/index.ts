@@ -24,7 +24,7 @@ const consoleTransport = new Console({
 
 infoLogger.add(consoleTransport);
 
-if (process.env['NODE_ENV'] === 'prod') {
+if (process.env.NODE_ENV === 'prod') {
 
   const fileFormat = format.combine(
     format.timestamp(),

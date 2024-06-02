@@ -171,7 +171,7 @@
         }
       }
     },
-    "/mdm/product": {
+    "/api/icon": {
       "post": {
         "security": [
           {
@@ -185,13 +185,13 @@
             "description": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/CreateProduct"
+              "$ref": "#/definitions/CreateIcon"
             }
           }
         ],
         "description": "",
         "tags": [
-          "Product"
+          "Icon"
         ],
         "responses": {
           "200": {
@@ -214,10 +214,29 @@
             "token": []
           }
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "type": "number",
+            "required": false
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "type": "number",
+            "required": false
+          }
+        ],
         "description": "",
         "tags": [
-          "Product"
+          "Icon"
         ],
         "responses": {
           "200": {
@@ -225,7 +244,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Product"
+                "$ref": "#/definitions/Icon"
               }
             }
           },
@@ -250,13 +269,13 @@
             "description": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UpdateProduct"
+              "$ref": "#/definitions/UpdateIcon"
             }
           }
         ],
         "description": "",
         "tags": [
-          "Product"
+          "Icon"
         ],
         "responses": {
           "200": {
@@ -274,39 +293,8 @@
         }
       }
     },
-    "/sales": {
+    "/api/icon/{id}": {
       "get": {
-        "security": [
-          {
-            "token": []
-          }
-        ],
-        "parameters": [],
-        "description": "",
-        "tags": [
-          "Sales"
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Sale"
-              }
-            }
-          },
-          "500": {
-            "description": "Error",
-            "schema": {
-              "$ref": "#/definitions/OPStatus"
-            }
-          }
-        }
-      }
-    },
-    "/sales/post": {
-      "post": {
         "security": [
           {
             "token": []
@@ -314,24 +302,22 @@
         ],
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "description": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/PostSale"
-            }
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
           }
         ],
         "description": "",
         "tags": [
-          "Sales"
+          "Icon"
         ],
         "responses": {
           "200": {
             "description": "Successful operation",
             "schema": {
-              "$ref": "#/definitions/OPStatus"
+              "type": "object",
+              "$ref": "#/definitions/Icon"
             }
           },
           "500": {
@@ -381,47 +367,35 @@
         }
       }
     },
-    "CreateProduct": {
-      "$ref": "#/definitions/Product"
+    "CreateIcon": {
+      "$ref": "#/definitions/Icon"
     },
-    "UpdateProduct": {
-      "$ref": "#/definitions/Product"
+    "UpdateIcon": {
+      "$ref": "#/definitions/Icon"
     },
-    "Product": {
+    "Icon": {
       "type": "object",
       "properties": {
-        "code": {
+        "iconPackId": {
+          "type": "string"
+        },
+        "iconBase64": {
           "type": "string"
         },
         "name": {
           "type": "string"
         },
-        "desc": {
-          "type": "string"
+        "tags": {
+          "type": "array",
+          "items": {
+            "type":"array"
+          }
         },
-        "tag": {
+        "desc": {
           "type": "string"
         },
         "price": {
           "type": "number"
-        }
-      }
-    },
-    "PostSale": {
-      "$ref": "#/definitions/Sale"
-    },
-    "Sale": {
-      "type": "object",
-      "properties": {
-        "productCode": {
-          "type": "string"
-        },
-        "userEmail": {
-          "type": "string",
-          "format": "email"
-        },
-        "quantity": {
-          "type": "integer"
         }
       }
     },
@@ -470,12 +444,8 @@
       "description": "To manage user data"
     },
     {
-      "name": "Product",
-      "description": "To manage product data"
-    },
-    {
-      "name": "Sales",
-      "description": "To manage sales data"
+      "name": "Icon",
+      "description": "To manage icon data"
     },
     {
       "name": "Security",

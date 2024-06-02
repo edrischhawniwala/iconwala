@@ -1,3 +1,4 @@
+import { Filter, FindOptions, Document, WithId } from 'mongodb';
 import { StandardError, StandardSuccess } from '../../entity/standard-operation';
 
 interface IRepository {
@@ -12,9 +13,11 @@ interface IRepository {
 
   updateOne(schema: string, filter: object, data: object): Promise<void>;
 
-  readMany(schema: string, filter: object): Promise<object[] | void>;
+  // readMany(schema: string, filter: object): Promise<object[] | void>;
+  readMany<T extends Document>(schema: string, filter: Filter<T>, options?: FindOptions): Promise<void | Document[]>
 
-  readOne(schema: string, filter: object): Promise<object | void>;
+  // readOne(schema: string, filter: object): Promise<object | void>;
+  readOne<T extends Document>(schema: string, filter: Filter<T>): Promise<void | WithId<T>>
 
   deleteOne(schema: string, filter: object): Promise<void>;
 
