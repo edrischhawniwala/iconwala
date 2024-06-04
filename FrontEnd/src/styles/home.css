@@ -1,7 +1,178 @@
-body {
+.homebanner {
     background-color: #1B2634;
+    height: 100vh;
+    width: 100%;
+    padding-top: 20px;
 }
 
 a {
     text-decoration: none;
+}
+
+.homebanner-left h2 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.homebanner-content {
+    display: flex;
+}
+
+.homebanner-left, .homebanner-right {
+    width: 50%;
+}
+
+.homebanner-right img {
+    width: 24rem;
+    margin: 0 auto;
+    display: block;
+    position: absolute;
+    top: 0rem;
+    z-index: 0;
+    left: 50%;
+    transform: translate(35%, 0);
+
+}
+
+.homebannerleft-inner {
+    display: block;
+    margin: 0 auto;
+    width: 500px;
+    margin-top: 6rem;
+
+}
+
+.homebannertext {
+    font-size: 1.5em;
+    line-height: 1.2em;
+    color: #fff;
+    margin-top: 0px !important;
+}
+
+.homebannersearch-div p {
+    color: #fff;
+}
+
+.searchdiv input {
+    padding: 15px;
+    width: 100%;
+    border-radius: 16px;
+    
+}
+
+.homebannersearch-div svg {
+    background: #2E90EB;
+    width: 34px;
+    fill: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    right: -40px;
+    top: -2px;
+}
+
+.homebannersearch-div {
+    margin-top: 3rem;
+}
+
+
+.searchdiv {
+    position: relative;
+}
+
+.searchcategoryitem {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    background: #00000054;
+    padding: 15px;
+    margin-right: 10px;
+    font-size: 16px;
+    border-radius: 20px;
+}
+
+.homesearchcategories {
+    display: flex;
+    justify-content: space-between;
+    width: 115%;
+    margin-top: 20px;
+}
+
+.searchcategoryitem img {
+    width: 25px;
+    margin-left: 10px;
+}
+
+/* Most Popular Category Div */
+
+.mostpopularcategory {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.mostpopularcategory svg {
+    width: 30px;
+    margin-left: 10px;
+}
+
+.viewall-div  {
+   font-size: 18px;
+   color: #2E90EB;
+   display: flex;
+   align-items: center;
+}
+.viewall-div svg {
+    width: 30px;
+    margin-left: 10px;
+}
+
+.popularcategory-div {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.categoryitem1 {
+    background:url(../imgs/3dbg.png);
+}
+
+.categoryitem2 {
+    background:url(../imgs/vectorbg.png);
+}
+
+.categoryitem3 {
+    background:url(../imgs/lottebg.png);
+}
+
+.categoryitem4 {
+    background:url(../imgs/freeassetsbg.png);
+}
+
+.categoryitem {
+    width: 250px;
+    height: 250px;
+    background-size: cover;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.categories-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.categoryitem img {
+    width: 30px;
+}
+
+.categoryitem p {
+    color: #fff;
 }

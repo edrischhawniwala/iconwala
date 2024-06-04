@@ -11,6 +11,8 @@
     padding: 0px 20px;
     display: flex;
     align-items: center;
+    z-index: 999;
+    position: relative;
 }
 
 .nav-logo img {
@@ -100,7 +102,14 @@
         margin: 15px;
     }
 
-    .custom-mobile-menu {   display: BLOCK;}
+    .custom-mobile-menu {   
+        display: BLOCK;
+    }
+
+    .custom-mobile-menu img {   
+        width: 40px;
+        margin: 20px;
+    }
 
    
     
