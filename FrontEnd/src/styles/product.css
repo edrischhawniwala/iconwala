@@ -1,0 +1,12 @@
+.container{max-width: 1310px; margin: 0 auto;padding-left: 15px;padding-right: 15px;}
+body{
+    background: #fff;
+}
+img{max-width: 100%; display: block;}
+
+.banner-main{background: #F4E8F3; padding: 10px 0;}
+.banner-area{display: flex;align-items: center;justify-content: center;}
+.banner-area .left-area{flex: 1; padding: 20px 0; padding-right: 30px; display: block;text-align: left;}
+.banner-area h1{color: #3A4980;font-size: 34px;line-height: 51px; margin: 0 auto 10px;font-weight: 400;}
+.banner-area p{color: #000;font-size:20px;line-height: 30px; margin: 0 ; max-width: 620px;}
+.banner-area .right-area{max-width: 480px;}
