@@ -4,7 +4,7 @@ import "../styles/login.css";
 import { Home } from "./Home";
 import { useNavigate } from 'react-router-dom';
 
-export function Login() {
+export function Signin() {
     const navigate = useNavigate();
 
   return (
