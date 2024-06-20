@@ -29,8 +29,8 @@ app.use(routes);
 app.use((req: Request, res: Response, next: NextFunction) => { next(new APINotFoundError()); });
 app.use(errorHandlerMiddleware);
 
-const server: Server = app.listen((process.env['NODE_PORT'] || process.env['APP.PORT']), () => {
-  eventHandler.emit('sys-info', `Express app started at ${process.env['NODE_PORT'] || process.env['APP.PORT']}.`);
+const server: Server = app.listen((process.env.NODE_PORT || process.env['APP.PORT']), () => {
+  eventHandler.emit('sys-info', `Express app started at ${process.env.NODE_PORT || process.env['APP.PORT']}.`);
 });
 
 const closeApp = async (server: Server) => {

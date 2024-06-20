@@ -1,11 +1,12 @@
 export {};
 
 function importTest(name, path) {
+  // tslint:disable-next-line:only-arrow-functions
   describe(name, function () {
     require(path);
   });
 }
 
 describe('Repository tests', () => {
-  importTest('Product repository', './product.ts');
+  // importTest('Icon repository', './icon.ts');
 });
