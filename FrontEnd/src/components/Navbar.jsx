@@ -24,8 +24,8 @@ export function Navbar() {
         <a href="#">About Us</a>
     </div>
     <div className="nav-signin-btns">
-    <a href="#">Login</a>
-    <a href="#">Sign Up</a>
+    <a href="/login">Login</a>
+    <a href="/signup">Sign Up</a>
     </div>
 
    </div>
