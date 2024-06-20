@@ -55,7 +55,7 @@ export function Login() {
 </svg>
 
             </div>
-            Continue with Faceboojk
+            Continue with Facebook
           </div>
         </div>
      </div>
