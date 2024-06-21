@@ -14,8 +14,8 @@ class MongoRepository implements IRepository {
   private dbObj: MongoClient = new MongoClient(
     process.env['REPOSITORY.MONGO.CONNSTR'] as string,
     {
-      // useUnifiedTopology: true,
-      // useNewUrlParser: true
+      useUnifiedTopology: true,
+      useNewUrlParser: true
     } as MongoClientOptions
   );
 
