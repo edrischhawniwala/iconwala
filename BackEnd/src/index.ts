@@ -4,6 +4,8 @@ import './di';
 import express from 'express';
 import { Server } from 'http';
 import { Request, Response, NextFunction } from 'express';
+import cookieSession from 'cookie-session';
+import passport from 'passport';
 
 import { container } from './di';
 import { TYPES } from './di/types';
@@ -17,11 +19,42 @@ import routes from './routes';
 import errorHandlerMiddleware from './error-handler';
 
 import { APINotFoundError } from './error-handler/definition';
+import PassportGoogleOauth20 from 'passport-google-oauth20';
 
 const repository: IRepository = container.get<IRepository>(TYPES.IRepository);
 
 const app = express();
 
+app.use(cookieSession({
+  name: "session",
+  keys: ["iconwala"],
+  maxAge: 24 * 60 * 60 * 100
+}));
+
+passport.use(
+  new PassportGoogleOauth20.Strategy(
+    {
+      clientID: process.env['GOOGLE.CLIENT_ID'] || '',
+      clientSecret: process.env['GOOGLE.CLIENT_SECRET'] || '',
+      callbackURL: "/auth/google/callback",
+      scope: ['profile', 'email'],
+    },
+    function (accessToken, refreshToken, profile, callback){
+      callback(null, profile);
+    }
+  )
+);
+
+passport.serializeUser((user: Express.User, done) => {
+  done(null, user);
+});
+
+passport.deserializeUser((user: Express.User, done) => {
+  done(null, user);
+});
+
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(securityMiddleware);
 app.use(swaggerRoute);
 app.use(coreMiddleware);

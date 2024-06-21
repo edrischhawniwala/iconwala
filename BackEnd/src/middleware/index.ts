@@ -13,7 +13,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 router.use(cookieParser.default(''));
 
-router.use(cors.default({ origin: true, credentials: true }));
+router.use(cors.default({ origin: true, credentials: true}));
 
 // router.use((req, res, next) => {
 //   res.header('Access-Control-Allow-Credentials', 'true');
