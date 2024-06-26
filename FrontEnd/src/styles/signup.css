@@ -1,0 +1,80 @@
+.signup-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 1px solid #efefef;
+}
+
+.signup-content-left h2 {
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.signup-logo img {
+    width: 50px;
+}
+
+
+.signup-logo {
+    display: flex;
+    align-items: center;
+}
+
+.signup-btn-text {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-logo img, .iconwala-text {
+    cursor: pointer;
+}
+
+
+.signup-body-content {
+    display: flex;
+}
+
+.signup-content-left {
+    width: 40%;
+    padding-left: 40px;
+}
+
+.signup-content-right {
+    width: 60%;
+
+}
+
+.signup-top-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.signup-google-btn, .signup-facebook-btn {
+    display: flex;
+    border: 1px solid #333;
+    padding: 10px 20px;
+    border-radius: 30px;
+    justify-content: center;
+
+}
+
+.google-icon-btn, .facebook-icon-btn {
+    margin-right: 15px;
+}
+.signup-facebook-btn, .signup-btns {
+    margin-top: 20px;
+
+}
+
+.cant-signup-div {
+    margin-top: 10rem;
+    text-align: center;
+}
+
+.signup-top-content {
+    margin-top: 20px;                                                                                                                                                                                                                                                            
+}

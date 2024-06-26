@@ -1,0 +1,69 @@
+.login-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 1px solid #efefef;
+}
+
+.back-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.back-icon {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;                                                                                                                                       
+}
+
+.back-icon svg {
+    width: 30px;
+    height: 30px;
+}  
+
+
+.google-icon-btn svg, .facebook-icon-btn svg {
+    width: 18px;
+    height: 18px;
+}  
+.create-btn {
+    display: flex;
+    align-items: center;
+
+}
+
+.login-top-content img {
+    width: 80px;
+}
+
+.login-top-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-google-btn, .login-facebook-btn {
+    display: flex;
+    border: 1px solid #333;
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+
+.google-icon-btn, .facebook-icon-btn {
+    margin-right: 15px;
+}
+.login-facebook-btn, .login-btns {
+    margin-top: 20px;
+}
+
+.cant-login-div {
+    margin-top: 10rem;
+    text-align: center;
+}
+
+.login-top-content {
+    margin-top: 20px;                                                                                                                                                                                                                                                            
+}
