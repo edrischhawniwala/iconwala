@@ -19,7 +19,7 @@ export function Navbar() {
     </div>
     <div className="navigation-items">
         <a href="#">Explore</a>
-        <a href="#">Add Your Design</a>
+        <a href="/upload">Add Your Design</a>
         <a href="#">Free Assets</a>
         <a href="#">About Us</a>
     </div>
