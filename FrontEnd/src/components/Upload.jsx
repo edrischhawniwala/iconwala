@@ -25,12 +25,12 @@ export class Upload extends React.Component {
   onUpload = (e) => {
     upload(this.state.base64Data, 'Something', 'no desc', 5).then(()=> {
       console.log("upload successful");
+      alert('The image is uploaded successfully!');
     }).catch(err => {
       console.log(`err: ${err}`)
     })
   }
   onChange = (e) => {
-    debugger;
     console.log("file uploaded: ", e.target.files[0]);
     let file = e.target.files[0];
 
