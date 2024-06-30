@@ -52,19 +52,19 @@ export class Upload extends React.Component {
   render() {
     return (
       <Fragment>
-        <div className="homebanner">
+        <div className="uploadbanner">
           <Navbar></Navbar>
 
-          <div className="homebanner-content">
-            <div className="homebannerleft-inner">
+          <div className="uploadbanner-content">
+            <div className="uploadbannerleft-inner">
               <h2>
                 <span style={{ color: "#F48B3C" }}>iCon</span>
                 <span style={{ color: "#449AF7" }}>Wala</span>
               </h2>
-              <p className="homebannertext">Upload Your Icons Here</p>
+              <p className="uploadbannertext">Upload Your Icons Here</p>
               <p className="uploadtext">Unleash Your Creativity - Share Your Icons & Animations (or) Upload Your Awesome Icons & Animations</p>
 
-              <div className="homebannersearch-div">
+              <div className="uploadbannersearch-div">
                 <div className="upload-form">
                  <div className="form-item"><p>Name</p><input type="text" /></div>
                  <div className="form-item"><p>Description</p> <input type="text" /></div>

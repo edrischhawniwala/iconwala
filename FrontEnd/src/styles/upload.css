@@ -1,4 +1,4 @@
-.homebanner {
+.uploadbanner {
     background-color: #1B2634;
     height: 100%;
     width: 100%;
@@ -9,20 +9,20 @@ a {
     text-decoration: none;
 }
 
-.homebanner-left h2 {
+.uploadbanner-left h2 {
     font-size: 3em;
     margin-bottom: 10px;
 }
 
-.homebanner-content {
+.uploadbanner-content {
     display: flex;
 }
 
-.homebanner-left, .homebanner-right {
+.uploadbanner-left, .uploadbanner-right {
     width: 50%;
 }
 
-.homebanner-right img {
+.uploadbanner-right img {
     width: 24rem;
     margin: 0 auto;
     display: block;
@@ -34,7 +34,7 @@ a {
 
 }
 
-.homebannerleft-inner {
+.uploadbannerleft-inner {
     display: block;
     margin: 0 auto;
     width: 500px;
@@ -42,14 +42,14 @@ a {
 
 }
 
-.homebannertext {
+.uploadbannertext {
     font-size: 1.5em;
     line-height: 1.2em;
     color: #fff;
     margin-top: 0px !important;
 }
 
-.homebannersearch-div p {
+.uploadbannersearch-div p {
     color: #fff;
 }
 
@@ -60,7 +60,7 @@ a {
     
 }
 
-.homebannersearch-div svg {
+.uploadbannersearch-div svg {
     background: #2E90EB;
     width: 34px;
     fill: #fff;
@@ -71,7 +71,7 @@ a {
     top: -2px;
 }
 
-.homebannersearch-div {
+.uploadbannersearch-div {
     margin-top: 3rem;
 }
 
@@ -176,31 +176,26 @@ a {
 .categoryitem p {
     color: #fff;
 }
-body {
-    background-color: #1B2634;
-    height: 100vh;
-    width: 100%;
-    padding-top: 20px;
-}
+
 
 a {
     text-decoration: none;
 }
 
-.homebanner-left h2 {
+.uploadbanner-left h2 {
     font-size: 3em;
     margin-bottom: 10px;
 }
 
-.homebanner-content {
+.uploadbanner-content {
     display: flex;
 }
 
-.homebanner-left, .homebanner-right {
+.uploadbanner-left, .uploadbanner-right {
     width: 50%;
 }
 
-.homebanner-right img {
+.uploadbanner-right img {
     width: 24rem;
     margin: 0 auto;
     display: block;
@@ -212,7 +207,7 @@ a {
 
 }
 
-.homebannerleft-inner {
+.uploadbannerleft-inner {
     display: block;
     margin: 0 auto;
     width: 500px;
@@ -220,14 +215,14 @@ a {
 
 }
 
-.homebannertext {
+.uploadbannertext {
     font-size: 1.5em;
     line-height: 1.2em;
     color: #fff;
     margin-top: 0px !important;
 }
 
-.homebannersearch-div p {
+.uploadbannersearch-div p {
     color: #fff;
 }
 
@@ -238,7 +233,7 @@ a {
     
 }
 
-.homebannersearch-div svg {
+.uploadbannersearch-div svg {
     background: #2E90EB;
     width: 34px;
     fill: #fff;
@@ -249,7 +244,7 @@ a {
     top: -2px;
 }
 
-.homebannersearch-div {
+.uploadbannersearch-div {
     margin-top: 3rem;
 }
 
@@ -427,12 +422,12 @@ footer {
 }
 
 
-.homebannerleft-inner h2 {
+.uploadbannerleft-inner h2 {
     font-size: 3rem;
     text-align: center;
 }
 
-.homebannertext {
+.uploadbannertext {
     text-align: center;
 }
 
@@ -466,7 +461,11 @@ text-align: center;
     }
 
 
-.homebannersearch-div p {
+.uploadbannersearch-div p {
     margin-right: 10px;
     font-size: 24px;
+}
+
+.uploadbanner-content {
+    padding-bottom: 30px;
 }
