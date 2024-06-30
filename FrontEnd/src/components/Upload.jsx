@@ -10,6 +10,7 @@ import vectoricon from "../imgs/vectoricon.png";
 import freeasseticon from "../imgs/freeasssetsicon.png";
 import { v4 as uuidv4 } from 'uuid'; 
 import axios from "axios";
+import { upload } from "../api";
 // uuidv4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
 const baseurl='http://localhost:4800/';
 const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzE5NDMxNzg2LCJleHAiOjE3MTk0MzM1ODZ9.acC2dvkQp20YAN583fdIReMIGwzoWnX6uhrM-q3XP84';
@@ -22,28 +23,14 @@ export class Upload extends React.Component {
     };
   }
   onUpload = (e) => {
-    axios.post(
-      `${baseurl}api/icon`,
-      {
-        "id": uuidv4(),
-        "iconPackId": uuidv4(),
-        "iconBase64": this.state.base64Data,
-        "name": "Sneakers",
-        "tags": [
-          'shoe'
-        ],
-        "desc": "string",
-        "price": 0
-      }, 
-      {
-        headers:{Authorization:`Bearer ${token}`}
-      }
-    ).then(()=> {
+    upload(this.state.base64Data, 'Something', 'no desc', 5).then(()=> {
       console.log("upload successful");
+      alert('The image is uploaded successfully!');
+    }).catch(err => {
+      console.log(`err: ${err}`)
     })
   }
   onChange = (e) => {
-    debugger;
     console.log("file uploaded: ", e.target.files[0]);
     let file = e.target.files[0];
 

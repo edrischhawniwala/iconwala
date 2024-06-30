@@ -77,7 +77,7 @@ async function imageSearch(req: Request, res: Response, next: NextFunction) {
       }));
 
       res.json(results); // comment this line and use this result to query our db
-      
+
       controller.fetch(1, 10, results.title as string)
       .then((icons: StandardError | Icon[]) => {
         if (!Array.isArray(icons)) { icons = []; }
@@ -87,8 +87,8 @@ async function imageSearch(req: Request, res: Response, next: NextFunction) {
         res.status(500).send(error);
       });
   } catch (error) {
-      console.error("Error performing reverse image search:", error);
-      res.status(500).send("Error performing reverse image search");
+      console.error('Error performing reverse image search:', error);
+      res.status(500).send('Error performing reverse image search');
   }
 }
 
