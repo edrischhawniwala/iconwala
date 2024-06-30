@@ -65,6 +65,12 @@ export class Upload extends React.Component {
               <p className="uploadtext">Unleash Your Creativity - Share Your Icons & Animations (or) Upload Your Awesome Icons & Animations</p>
 
               <div className="homebannersearch-div">
+                <div className="upload-form">
+                 <div className="form-item"><p>Name</p><input type="text" /></div>
+                 <div className="form-item"><p>Description</p> <input type="text" /></div>
+                 <div className="form-item"><p>Price</p> <input type="text" /></div>
+                 <div className="form-item"><p>Tags</p> <input type="text" /></div>
+                </div>
                 <div className="searchdiv">
                   <input
                     placeholder="Upload Icons"
