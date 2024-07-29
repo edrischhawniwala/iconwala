@@ -2,8 +2,8 @@ import axios from "axios";
 import { v4 as uuid4 } from 'uuid'; 
 
 const token = {
-  accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzE5NTk2NDMxLCJleHAiOjE3MTk1OTgyMzF9.wqxSwpEk-fwwvjb5QLMF74GDvs0rp6edH0P8bkDaVic",
-  refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzE5NTk2NDMxLCJleHAiOjE3MTk2MDM2MzF9.QVect3IEUl_E_berGDyUgtrsDIuse4gOKmLNuaHLp1M"
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzE5NzQyMDU5LCJleHAiOjE3MTk3NDM4NTl9.hPMOnTpNifbNS_ZIbLBgfwBD9e3AenJN4xTZx0I6w3Q",
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzE5NzQyMDU5LCJleHAiOjE3MTk3NDkyNTl9.wahe60m0dP2cNQthBYffpxiX9fTynmkuztghd9x-ecY"
 };
 
 export function getConfig() {
